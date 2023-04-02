@@ -1,14 +1,16 @@
 <div class="card">
     <div class="card-body">
-        <form action="">
+        <form (ngSubmit)="save()">
             <div class="mb-2">
                 <label class="form-label">
                     Nombre Producto:
                 </label>
                 <input
                     type="text"
+                    name="productName"
                     class="form-control"
                     placeholder="Ingrese el nombre del producto"
+                    [(ngModel)]="product.nameProduct"
                 >
             </div>
             <div class="mb-2">
@@ -17,8 +19,10 @@
                 </label>
                 <input
                     type="text"
+                    name="productSize"
                     class="form-control"
                     placeholder="Ingrese la talla del producto"
+                    [(ngModel)]="product.sizeProduct"
                 >
             </div>
             <div class="mb-2">
@@ -27,8 +31,10 @@
                 </label>
                 <input
                     type="text"
+                    name="productBrand"
                     class="form-control"
                     placeholder="Ingrese la marca del producto"
+                    [(ngModel)]="product.brandProduct"
                 >
             </div>
             <div class="mb-2">
@@ -38,10 +44,13 @@
                 <input
                     type="number"
                     class="form-control"
+                    name="productPrice"
                     placeholder="Ingrese el precio del producto"
+                    [(ngModel)]="product.priceProduct"
                 >
             </div>
-            <button class="btn btn-primary">
+            <button 
+            class="btn btn-primary">
                 Guardar
             </button>
         </form> 
