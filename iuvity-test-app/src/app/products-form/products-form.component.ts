@@ -16,7 +16,6 @@ export class ProductsFormComponent {
   } 
 
   save(){
-    console.log('product-->', this.product);
     let data = JSON.stringify({
       "name": this.product.nameProduct,
       "size": this.product.sizeProduct,
@@ -35,6 +34,10 @@ export class ProductsFormComponent {
     axios.request(config)
     .then((response: { data: any; }) => {
       console.log(JSON.stringify(response.data));
+      this.product.nameProduct = "";
+      this.product.brandProduct = "";
+      this.product.sizeProduct = "";
+      this.product.priceProduct = 0;
     })
     .catch((error: any) => {
       console.log(error);
