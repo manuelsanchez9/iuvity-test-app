@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
-
 @Component({
   selector: 'app-products-get',
   templateUrl: './products-get.component.html',
   styleUrls: ['./products-get.component.css']
 })
 export class ProductsGetComponent {
+  products = [
+    {
+    name:'',
+    size:'',
+    brand:'',
+    price:0
+    }
+  ];
   getProducts(){
     let data = '';
     let config = {
@@ -18,7 +25,7 @@ export class ProductsGetComponent {
     };
     axios.request(config)
     .then((response) => {
-      console.log(response.data);
+      this.products = response.data;
     })
     .catch((error) => {
       console.log(error);
